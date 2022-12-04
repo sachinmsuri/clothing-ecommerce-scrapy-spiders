@@ -12,7 +12,7 @@ import sys
 
 
 class FashionWebsiteScraperPipeline:
-    collection = 'plt'
+    collection = 'plt-items'
 
     def __init__(self, mongodb_uri, mongodb_db):
         self.mongodb_uri = mongodb_uri
