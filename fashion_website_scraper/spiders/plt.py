@@ -24,7 +24,7 @@ class PltSpider(scrapy.Spider):
             )
 
         next_page = response.css('a.load-more-btn::attr(href)').get()
-        if next_page is not None and self.product_count < 250:
+        if next_page is not None and self.product_count < 10:
            yield response.follow(next_page, callback=self.parse)
     
     def parse_product(self, response):
