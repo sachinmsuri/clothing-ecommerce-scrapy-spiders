@@ -18,14 +18,14 @@ class FashionWebsiteScraperPipeline:
         self.mongodb_uri = mongodb_uri
         self.mongodb_db = mongodb_db
 
-        # if not self.mongodb_uri:
-        #    sys.exit('No connection string has been provided')
+        if not self.mongodb_uri:
+           sys.exit('No connection string has been provided')
 
     @classmethod
     def from_crawler(cls, crawler):
         return cls(
-            mongodb_uri='mongodb+srv://admin:welcome1234@test-cluster.laxybot.mongodb.net/test', #crawler.settings.get('MONGODB_URI'),
-            mongodb_db='scraped-clothing-website' #crawler.settings.get('MONGODB_DATABASE') #'items')
+            mongodb_uri= crawler.settings.get('MONGODB_URI'),
+            mongodb_db= crawler.settings.get('MONGODB_DATABASE') #'items')
         )
     
     def open_spider(self, spider):
